@@ -19,8 +19,10 @@ const App = () => {
             <Route path="/resources" element={<ResourcesPage />} />
             {/* FAQ page */}
             <Route path="/faq" element={<FAQPage />} />
-            {/* Videos page */}
-            <Route path="/videos" element={<VideosPage />} />
+            {/* Video page */}
+            <Route path="/video" element={<VideoPage />} />
+            {/* Rectal Video page */}
+            <Route path="/rectalvideo" element={<RectalVideoPage />} />
             {/* Fallback for unknown paths - can redirect to home or a custom 404 page */}
             <Route path="*" element={<HomePage />} /> {/* Redirects any unknown path to home */}
           </Routes>
@@ -35,15 +37,16 @@ const App = () => {
 
 // Navbar Component
 const Navbar = () => {
-  // useNavigate hook to programmatically navigate
-  const navigate = useNavigate();
+  // useNavigate hook is not directly used here but kept for potential future use
+  // const navigate = useNavigate();
 
   // Navigation items with their corresponding paths
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Resources', path: '/resources' },
     { name: 'FAQ', path: '/faq' },
-    { name: 'Study Videos', path: '/videos' },
+    { name: 'Study Video', path: '/video' }, // Changed to 'Video'
+    { name: 'Rectal Video', path: '/rectalvideo' }, // New navigation item
   ];
 
   // Get the current path to highlight the active link
@@ -263,59 +266,50 @@ const FAQPage = () => {
   );
 };
 
-// Videos Page Component (no changes needed for content)
-const VideosPage = () => {
-  const videos = [
-    {
-      title: 'Introduction to the Study',
-      description: 'A brief overview of the National Cohort Study and its importance.',
-      embedUrl: 'https://www.youtube.com/embed/your_video_id_1', // Placeholder YouTube embed URL
-    },
-    {
-      title: 'How to Complete Your Survey',
-      description: 'Step-by-step guide on navigating and completing the online participant survey.',
-      embedUrl: 'https://www.youtube.com/embed/your_video_id_2', // Placeholder YouTube embed URL
-    },
-    {
-      title: 'Preparing for Your Clinic Visit',
-      description: 'What to expect and how to prepare for your in-person clinic appointment.',
-      embedUrl: 'https://www.youtube.com/embed/your_video_id_3', // Placeholder YouTube embed URL
-    },
-    {
-      title: 'Understanding Your Data Privacy',
-      description: 'An explanation of the measures taken to protect your personal health information.',
-      embedUrl: 'https://www.youtube.com/embed/your_video_id_4', // Placeholder YouTube embed URL
-    },
-  ];
-
+// Generic component to display a single video
+const VideoContentPage = ({ title, description, embedUrl }) => {
   return (
     <section className="bg-white p-6 rounded-lg shadow-md">
       <h1 className="text-4xl font-extrabold text-indigo-800 mb-6 text-center">
-        Study Procedure Videos
+        {title}
       </h1>
       <p className="text-lg leading-relaxed mb-8 text-center text-gray-700">
-        Watch these helpful videos to understand various aspects of your participation and study procedures.
+        {description}
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {videos.map((video, index) => (
-          <div key={index} className="bg-indigo-50 p-4 rounded-lg shadow-sm">
-            <h2 className="text-2xl font-bold text-indigo-700 mb-3">{video.title}</h2>
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' /* 16:9 Aspect Ratio */ }}>
-              <iframe
-                className="absolute top-0 left-0 w-full h-full rounded-md"
-                src={video.embedUrl}
-                title={video.title}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-m edia; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <p className="text-gray-700 mt-4">{video.description}</p>
-          </div>
-        ))}
+      <div className="flex justify-center">
+        <div className="relative w-full max-w-3xl" style={{ paddingBottom: '56.25%' /* 16:9 Aspect Ratio */ }}>
+          <iframe
+            className="absolute top-0 left-0 w-full h-full rounded-md"
+            src={embedUrl}
+            title={title}
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture" // Vimeo specific allow attributes
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
     </section>
   );
+};
+
+// Video Page Component (for the main study video)
+const VideoPage = () => {
+  const videoDetails = {
+    title: 'Introduction to the Study Procedures',
+    description: 'This video provides a comprehensive overview of the study procedures and what participants can expect.',
+    embedUrl: 'https://player.vimeo.com/video/843216767', // Vimeo embed URL
+  };
+  return <VideoContentPage {...videoDetails} />;
+};
+
+// Rectal Video Page Component (for the specific rectal video)
+const RectalVideoPage = () => {
+  const videoDetails = {
+    title: 'Detailed Rectal Examination Procedure',
+    description: 'A detailed instructional video on the rectal examination procedure for participants.',
+    embedUrl: 'https://player.vimeo.com/video/843245895', // Vimeo embed URL
+  };
+  return <VideoContentPage {...videoDetails} />;
 };
 
 export default App;
