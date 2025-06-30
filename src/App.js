@@ -57,7 +57,7 @@ const Navbar = () => {
       <div className="container mx-auto flex flex-wrap justify-between items-center">
         {/* Site Title/Logo - clicking takes you home */}
         <Link to="/" className="text-white text-2xl font-bold rounded-md p-2">
-          National Cohort Study
+          AMETHST5K
         </Link>
 
         {/* Navigation Links */}
@@ -88,7 +88,7 @@ const Footer = () => {
   return (
     <footer className="bg-indigo-900 text-white p-6 mt-8">
       <div className="container mx-auto text-center text-sm">
-        <p>&copy; {new Date().getFullYear()} National Cohort Study. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} AMETHST5K. All rights reserved.</p>
         <p className="mt-2">
           <a href="#" className="text-teal-300 hover:underline">Privacy Policy</a> |{' '}
           <a href="#" className="text-teal-300 hover:underline">Terms of Service</a>
@@ -103,13 +103,12 @@ const HomePage = () => {
   return (
     <section className="bg-white p-6 rounded-lg shadow-md">
       <h1 className="text-4xl font-extrabold text-indigo-800 mb-6 text-center">
-        Welcome to the National Cohort Study
+        #AMETHST5K
       </h1>
       <p className="text-lg leading-relaxed mb-4 text-gray-700">
-        We are excited to invite you to participate in the National Cohort Study, a groundbreaking
-        research initiative aimed at understanding the long-term health and well-being of individuals
-        across the nation. This study will follow participants over several years, collecting
-        valuable data that will contribute to significant advancements in public health.
+        AMETHST 5000 is a study for cis and trans men and trans women who have sex with men. 
+        It is being conducted by the CUNY School of Public Health in NYC as well as Florida International University in Miami. 
+        This study is funded by the National Institutes of Health.
       </p>
       <p className="text-lg leading-relaxed mb-4 text-gray-700">
         Our goal is to identify factors that influence health outcomes, develop better prevention
@@ -169,7 +168,7 @@ const ResourcesPage = () => {
       </h1>
       <p className="text-lg leading-relaxed mb-8 text-center text-gray-700">
         Here you will find a collection of helpful resources to guide you through your participation
-        in the National Cohort Study.
+        in AMETHST.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {resources.map((resource, index) => (
@@ -295,7 +294,7 @@ const VideoContentPage = ({ title, description, embedUrl }) => {
 // Video Page Component (for the main study video)
 const VideoPage = () => {
   const videoDetails = {
-    title: 'Introduction to the Study Procedures',
+    title: 'HIV and Rectal Sample Collection',
     description: 'This video provides a comprehensive overview of the study procedures and what participants can expect.',
     embedUrl: 'https://player.vimeo.com/video/843216767', // Vimeo embed URL
   };
@@ -305,8 +304,8 @@ const VideoPage = () => {
 // Rectal Video Page Component (for the specific rectal video)
 const RectalVideoPage = () => {
   const videoDetails = {
-    title: 'Detailed Rectal Examination Procedure',
-    description: 'A detailed instructional video on the rectal examination procedure for participants.',
+    title: 'Rectal Sample Collection',
+    description: 's.',
     embedUrl: 'https://player.vimeo.com/video/843245895', // Vimeo embed URL
   };
   return <VideoContentPage {...videoDetails} />;
