@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/a5k-website/static/css/main.dad26ab6.css",
-    "main.js": "/a5k-website/static/js/main.db1079ac.js",
-    "index.html": "/a5k-website/index.html",
-    "main.dad26ab6.css.map": "/a5k-website/static/css/main.dad26ab6.css.map",
-    "main.db1079ac.js.map": "/a5k-website/static/js/main.db1079ac.js.map"
+    "main.css": "/static/css/main.dad26ab6.css",
+    "main.js": "/static/js/main.db1079ac.js",
+    "index.html": "/index.html",
+    "main.dad26ab6.css.map": "/static/css/main.dad26ab6.css.map",
+    "main.db1079ac.js.map": "/static/js/main.db1079ac.js.map"
   },
   "entrypoints": [
     "static/css/main.dad26ab6.css",
