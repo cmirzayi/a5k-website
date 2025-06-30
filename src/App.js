@@ -52,7 +52,7 @@ const Navbar = ({ setActivePage, activePage }) => {
       <div className="container mx-auto flex flex-wrap justify-between items-center">
         {/* Site Title/Logo */}
         <div className="text-white text-2xl font-bold rounded-md p-2">
-          National Cohort Study
+          #AMETHST5K
         </div>
 
         {/* Navigation Links */}
@@ -83,11 +83,16 @@ const Footer = () => {
   return (
     <footer className="bg-indigo-900 text-white p-6 mt-8"> {/* Deep blue/purple background */}
       <div className="container mx-auto text-center text-sm">
-        <p>&copy; {new Date().getFullYear()} National Cohort Study. All rights reserved.</p>
-        <p className="mt-2">
-          <a href="#" className="text-teal-300 hover:underline">Privacy Policy</a> |{' '} {/* Teal links */}
-          <a href="#" className="text-teal-300 hover:underline">Terms of Service</a>
-        </p>
+        <p>&copy; {new Date().getFullYear()}</p>
+         <p>AMETHST 5000  is a research study with the CUNY School of Public Health 
+          and the University of Miami.</p>
+
+<p>amethst5000@sph.cuny.edu</p>
+646-364-9640<br></br>
+Our hours of operation are Monday through Friday, 9 AM - 6 PM ET.
+<br></br><p>
+55 W 125th St.
+New York NY 10027</p>
       </div>
     </footer>
   );
@@ -98,36 +103,21 @@ const HomePage = () => {
   return (
     <section className="bg-white p-6 rounded-lg shadow-md">
       <h1 className="text-4xl font-extrabold text-indigo-800 mb-6 text-center"> {/* Darker indigo heading */}
-        Welcome to the National Cohort Study
+        American Transformative HIV Study
       </h1>
       <p className="text-lg leading-relaxed mb-4 text-gray-700"> {/* Dark grey text */}
-        We are excited to invite you to participate in the National Cohort Study, a groundbreaking
-        research initiative aimed at understanding the long-term health and well-being of individuals
-        across the nation. This study will follow participants over several years, collecting
-        valuable data that will contribute to significant advancements in public health.
+        We are excited to invite you to participate in the National Cohort Study, a 
+        groundbreaking research initiative aimed at understanding the long-term health
+        and well-being of individuals across the nation. This study will follow 
+        participants over several years, collecting valuable data that will 
+        contribute to significant advancements in public health.
       </p>
       <p className="text-lg leading-relaxed mb-4 text-gray-700">
-        Our goal is to identify factors that influence health outcomes, develop better prevention
-        strategies, and ultimately improve the quality of life for future generations. Your
-        participation is crucial to the success of this ambitious endeavor.
+       Participants in this study are making a valuable contribution in helping us 
+       learn more about how to prevent HIV. Our team is made up of LGBT individuals
+       and community representatives.  We are driven by a single goal: to do our part
+       in improving the well being of our community.
       </p>
-      <h2 className="text-3xl font-bold text-indigo-700 mb-4 mt-8">Why Participate?</h2> {/* Indigo heading */}
-      <ul className="list-disc list-inside text-lg leading-relaxed space-y-2 ml-4 text-gray-700">
-        <li>Contribute to vital scientific research.</li>
-        <li>Help shape future health policies and interventions.</li>
-        <li>Receive regular updates on study findings (anonymized).</li>
-        <li>Join a community dedicated to better health outcomes.</li>
-      </ul>
-      <h2 className="text-3xl font-bold text-indigo-700 mb-4 mt-8">Who Can Participate?</h2>
-      <p className="text-lg leading-relaxed text-gray-700">
-        We are seeking individuals aged 18 and older from diverse backgrounds across all states.
-        Specific eligibility criteria will be provided during the enrollment process.
-      </p>
-      <div className="mt-8 text-center">
-        <button className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"> {/* Teal button */}
-          Learn More & Enroll
-        </button>
-      </div>
     </section>
   );
 };
