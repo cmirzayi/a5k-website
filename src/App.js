@@ -1,0 +1,319 @@
+import React, { useState } from 'react';
+
+// Main App component
+const App = () => {
+  // State to manage the current active page
+  const [activePage, setActivePage] = useState('home');
+
+  // Function to render the correct page based on activePage state
+  const renderPage = () => {
+    switch (activePage) {
+      case 'home':
+        return <HomePage />;
+      case 'resources':
+        return <ResourcesPage />;
+      case 'faq':
+        return <FAQPage />;
+      case 'videos':
+        return <VideosPage />;
+      default:
+        return <HomePage />;
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col font-sans bg-gray-100 text-gray-800"> {/* Light grey background */}
+      {/* Navigation Bar */}
+      <Navbar setActivePage={setActivePage} activePage={activePage} />
+
+      {/* Main content area */}
+      <main className="flex-grow container mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        {renderPage()}
+      </main>
+
+      {/* Footer */}
+      <Footer />
+    </div>
+  );
+};
+
+// Navbar Component
+const Navbar = ({ setActivePage, activePage }) => {
+  // Navigation items with their corresponding page names
+  const navItems = [
+    { name: 'Home', page: 'home' },
+    { name: 'Resources', page: 'resources' },
+    { name: 'FAQ', page: 'faq' },
+    { name: 'Study Videos', page: 'videos' },
+  ];
+
+  return (
+    <nav className="bg-indigo-900 shadow-lg p-4"> {/* Deep blue/purple background */}
+      <div className="container mx-auto flex flex-wrap justify-between items-center">
+        {/* Site Title/Logo */}
+        <div className="text-white text-2xl font-bold rounded-md p-2">
+          National Cohort Study
+        </div>
+
+        {/* Navigation Links */}
+        <div className="flex flex-wrap space-x-4 md:space-x-6 mt-2 md:mt-0">
+          {navItems.map((item) => (
+            <button
+              key={item.page}
+              onClick={() => setActivePage(item.page)}
+              className={`
+                px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200
+                ${activePage === item.page
+                  ? 'bg-teal-600 text-white shadow-md' // Vibrant teal for active
+                  : 'text-indigo-100 hover:bg-indigo-700 hover:text-white' // Lighter indigo for hover
+                }
+              `}
+            >
+              {item.name}
+            </button>
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+// Footer Component
+const Footer = () => {
+  return (
+    <footer className="bg-indigo-900 text-white p-6 mt-8"> {/* Deep blue/purple background */}
+      <div className="container mx-auto text-center text-sm">
+        <p>&copy; {new Date().getFullYear()} National Cohort Study. All rights reserved.</p>
+        <p className="mt-2">
+          <a href="#" className="text-teal-300 hover:underline">Privacy Policy</a> |{' '} {/* Teal links */}
+          <a href="#" className="text-teal-300 hover:underline">Terms of Service</a>
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+// Home Page Component (Study Description)
+const HomePage = () => {
+  return (
+    <section className="bg-white p-6 rounded-lg shadow-md">
+      <h1 className="text-4xl font-extrabold text-indigo-800 mb-6 text-center"> {/* Darker indigo heading */}
+        Welcome to the National Cohort Study
+      </h1>
+      <p className="text-lg leading-relaxed mb-4 text-gray-700"> {/* Dark grey text */}
+        We are excited to invite you to participate in the National Cohort Study, a groundbreaking
+        research initiative aimed at understanding the long-term health and well-being of individuals
+        across the nation. This study will follow participants over several years, collecting
+        valuable data that will contribute to significant advancements in public health.
+      </p>
+      <p className="text-lg leading-relaxed mb-4 text-gray-700">
+        Our goal is to identify factors that influence health outcomes, develop better prevention
+        strategies, and ultimately improve the quality of life for future generations. Your
+        participation is crucial to the success of this ambitious endeavor.
+      </p>
+      <h2 className="text-3xl font-bold text-indigo-700 mb-4 mt-8">Why Participate?</h2> {/* Indigo heading */}
+      <ul className="list-disc list-inside text-lg leading-relaxed space-y-2 ml-4 text-gray-700">
+        <li>Contribute to vital scientific research.</li>
+        <li>Help shape future health policies and interventions.</li>
+        <li>Receive regular updates on study findings (anonymized).</li>
+        <li>Join a community dedicated to better health outcomes.</li>
+      </ul>
+      <h2 className="text-3xl font-bold text-indigo-700 mb-4 mt-8">Who Can Participate?</h2>
+      <p className="text-lg leading-relaxed text-gray-700">
+        We are seeking individuals aged 18 and older from diverse backgrounds across all states.
+        Specific eligibility criteria will be provided during the enrollment process.
+      </p>
+      <div className="mt-8 text-center">
+        <button className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"> {/* Teal button */}
+          Learn More & Enroll
+        </button>
+      </div>
+    </section>
+  );
+};
+
+// Resources Page Component
+const ResourcesPage = () => {
+  const resources = [
+    {
+      title: 'Study Protocol Document',
+      description: 'Detailed information about the study design, methodology, and objectives.',
+      link: '#', // Placeholder link
+    },
+    {
+      title: 'Participant Handbook',
+      description: 'A comprehensive guide for participants, covering what to expect and how to prepare.',
+      link: '#', // Placeholder link
+    },
+    {
+      title: 'Data Security & Privacy',
+      description: 'Information on how your data is collected, stored, and protected.',
+      link: '#', // Placeholder link
+    },
+    {
+      title: 'Contact Information',
+      description: 'Ways to get in touch with the study team for questions or support.',
+      link: '#', // Placeholder link
+    },
+  ];
+
+  return (
+    <section className="bg-white p-6 rounded-lg shadow-md">
+      <h1 className="text-4xl font-extrabold text-indigo-800 mb-6 text-center">
+        Participant Resources
+      </h1>
+      <p className="text-lg leading-relaxed mb-8 text-center text-gray-700">
+        Here you will find a collection of helpful resources to guide you through your participation
+        in the National Cohort Study.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {resources.map((resource, index) => (
+          <div key={index} className="bg-indigo-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"> {/* Light indigo background for cards */}
+            <h2 className="text-2xl font-bold text-indigo-700 mb-3">{resource.title}</h2>
+            <p className="text-gray-700 mb-4">{resource.description}</p>
+            <a
+              href={resource.link}
+              className="text-teal-600 hover:text-teal-800 font-semibold flex items-center" // Teal link
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Access Resource
+              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0l-6 6m6-6L10 14"></path>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// FAQ Page Component
+const FAQPage = () => {
+  const faqs = [
+    {
+      question: 'What is the purpose of this study?',
+      answer: 'The study aims to understand the long-term health and well-being of individuals across the nation, identifying factors that influence health outcomes and developing better prevention strategies.',
+    },
+    {
+      question: 'How long will my participation last?',
+      answer: 'Participants will be followed over several years, with periodic data collection points. The exact duration will be communicated during the enrollment process.',
+    },
+    {
+      question: 'Is my personal information kept confidential?',
+      answer: 'Absolutely. We adhere to strict data security protocols and all personal information is anonymized and kept confidential in accordance with national privacy regulations.',
+    },
+    {
+      question: 'What kind of data will be collected?',
+      answer: 'Data collected may include health surveys, physical measurements, biological samples (e.g., blood, urine), and lifestyle information. All data collection methods are designed to be minimally intrusive.',
+    },
+    {
+      question: 'Can I withdraw from the study at any time?',
+      answer: 'Yes, participation is entirely voluntary, and you can withdraw from the study at any time without penalty or affecting your medical care.',
+    },
+  ];
+
+  // State to manage which FAQ item is open
+  const [openFAQ, setOpenFAQ] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  return (
+    <section className="bg-white p-6 rounded-lg shadow-md">
+      <h1 className="text-4xl font-extrabold text-indigo-800 mb-6 text-center">
+        Frequently Asked Questions (FAQ)
+      </h1>
+      <p className="text-lg leading-relaxed mb-8 text-center text-gray-700">
+        Find answers to common questions about the National Cohort Study.
+      </p>
+      <div className="space-y-4">
+        {faqs.map((faq, index) => (
+          <div key={index} className="border border-indigo-200 rounded-lg overflow-hidden"> {/* Indigo border */}
+            <button
+              className="w-full text-left p-4 bg-indigo-100 hover:bg-indigo-200 focus:outline-none flex justify-between items-center" // Light indigo background for button
+              onClick={() => toggleFAQ(index)}
+            >
+              <span className="text-xl font-semibold text-indigo-800">{faq.question}</span> {/* Darker indigo text */}
+              <svg
+                className={`w-6 h-6 text-teal-600 transform transition-transform duration-200 ${ // Teal icon
+                  openFAQ === index ? 'rotate-180' : ''
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            {openFAQ === index && (
+              <div className="p-4 bg-white text-gray-700 border-t border-indigo-200">
+                <p className="text-lg leading-relaxed">{faq.answer}</p>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// Videos Page Component
+const VideosPage = () => {
+  const videos = [
+    {
+      title: 'Introduction to the Study',
+      description: 'A brief overview of the National Cohort Study and its importance.',
+      embedUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?si=R1e4_Fw0w9w9w9w9', // Placeholder YouTube embed URL
+    },
+    {
+      title: 'How to Complete Your Survey',
+      description: 'Step-by-step guide on navigating and completing the online participant survey.',
+      embedUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?si=R1e4_Fw0w9w9w9w9', // Placeholder YouTube embed URL
+    },
+    {
+      title: 'Preparing for Your Clinic Visit',
+      description: 'What to expect and how to prepare for your in-person clinic appointment.',
+      embedUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?si=R1e4_Fw0w9w9w9w9', // Placeholder YouTube embed URL
+    },
+    {
+      title: 'Understanding Your Data Privacy',
+      description: 'An explanation of the measures taken to protect your personal health information.',
+      embedUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?si=R1e4_Fw0w9w9w9w9', // Placeholder YouTube embed URL
+    },
+  ];
+
+  return (
+    <section className="bg-white p-6 rounded-lg shadow-md">
+      <h1 className="text-4xl font-extrabold text-indigo-800 mb-6 text-center">
+        Study Procedure Videos
+      </h1>
+      <p className="text-lg leading-relaxed mb-8 text-center text-gray-700">
+        Watch these helpful videos to understand various aspects of your participation and study procedures.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {videos.map((video, index) => (
+          <div key={index} className="bg-indigo-50 p-4 rounded-lg shadow-sm"> {/* Light indigo background for cards */}
+            <h2 className="text-2xl font-bold text-indigo-700 mb-3">{video.title}</h2>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' /* 16:9 Aspect Ratio */ }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full rounded-md"
+                src={video.embedUrl}
+                title={video.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <p className="text-gray-700 mt-4">{video.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default App;
