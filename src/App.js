@@ -53,10 +53,10 @@ const Navbar = () => {
   const currentPath = window.location.pathname;
 
   return (
-    <nav className="bg-indigo-900 shadow-lg p-4">
+    <nav className="bg-primary-navbar shadow-lg p-4">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
         {/* Site Title/Logo - clicking takes you home */}
-        <Link to="/" className="text-white text-2xl font-bold rounded-md p-2">
+        <Link to="/" className="text-gray-900 text-2xl font-bold rounded-md p-2">
           AMETHST5K
         </Link>
 
@@ -67,9 +67,9 @@ const Navbar = () => {
               key={item.path}
               to={item.path}
               className={`
-                px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200
+                px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-gray-900
                 ${currentPath === item.path
-                  ? 'bg-teal-600 text-white shadow-md' // Vibrant teal for active
+                  ? 'bg-purple-600 text-gray-900 shadow-md' // Vibrant teal for active
                   : 'text-indigo-100 hover:bg-indigo-700 hover:text-white' // Lighter indigo for hover
                 }
               `}
@@ -86,7 +86,7 @@ const Navbar = () => {
 // Footer Component (no changes needed)
 const Footer = () => {
   return (
-    <footer className="bg-indigo-900 text-white p-6 mt-8">
+    <footer className="bg-primary-navbar text-gray-900 p-6 mt-8">
       <div className="container mx-auto text-center text-sm">
         <p>&copy; {new Date().getFullYear()} AMETHST5K. .</p>
         <p className="mt-2">
@@ -111,7 +111,7 @@ const HomePage = () => {
         It is being conducted by the CUNY School of Public Health in NYC as well as Florida International University in Miami. 
         This study is funded by the National Institutes of Health.
       </p>
-      <h2> The Study</h2>
+      <h2 className="text-2xl font-extrabold text-indigo-800 mb-6"> The Study</h2>
       <p className="text-lg leading-relaxed mb-4 text-gray-700">
         Participants in this study are making a valuable contribution in helping us learn more about how to prevent HIV. 
         Our team is made up of LGBT individuals and community representatives.
@@ -125,24 +125,24 @@ const HomePage = () => {
 const ResourcesPage = () => {
   const resources = [
     {
-      title: 'Study Protocol Document',
-      description: 'Detailed information about the study design, methodology, and objectives.',
-      link: '#', // Placeholder link
+      title: 'Looking for HIV testing near you?',
+      description: 'Final local HIV testing sites.',
+      link: 'https://gettested.cdc.gov', // Placeholder link
     },
     {
-      title: 'Participant Handbook',
-      description: 'A comprehensive guide for participants, covering what to expect and how to prepare.',
-      link: '#', // Placeholder link
+      title: 'Looking for an HIV care provider or HIV treatment?',
+      description: 'Find a provider and get connected to treatment.',
+      link: 'https://locator.hiv.gov/map/', // Placeholder link
     },
     {
-      title: 'Data Security & Privacy',
-      description: 'Information on how your data is collected, stored, and protected.',
-      link: '#', // Placeholder link
+      title: 'Where can I find PrEP? (Truvada, Descovy, Apretude)',
+      description: 'Learn where you can get PrEP.',
+      link: 'https://preplocator.org', // Placeholder link
     },
     {
-      title: 'Contact Information',
-      description: 'Ways to get in touch with the study team for questions or support.',
-      link: '#', // Placeholder link
+      title: 'Find your local food bank',
+      description: 'Here you can locate your closest food bank.',
+      link: 'https://www.feedingamerica.org/find-your-local-foodbank', // Placeholder link
     },
   ];
 
@@ -152,8 +152,8 @@ const ResourcesPage = () => {
         Participant Resources
       </h1>
       <p className="text-lg leading-relaxed mb-8 text-center text-gray-700">
-        Here you will find a collection of helpful resources to guide you through your participation
-        in AMETHST.
+       Team A5K has put together a list of resources that may help you find services related to HIV, 
+       LGBTQ+ health, PrEP, substance use, mental health and social support. 
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {resources.map((resource, index) => (
@@ -182,24 +182,24 @@ const ResourcesPage = () => {
 const FAQPage = () => {
   const faqs = [
     {
-      question: 'What is the purpose of this study?',
-      answer: 'The study aims to understand the long-term health and well-being of individuals across the nation, identifying factors that influence health outcomes and developing better prevention strategies.',
+      question: 'Why is the study called AMETHST 5000 (A5K)?',
+      answer: 'Great question. AMETHST stands for the American Transformative HIV Study, and the 5000 represents all of you who are contributing to this collective effort to end the HIV epidemic. Thank you all for your participation! Of note, you do not need to have American citizenship to participate. You just need to be a resident of the U.S.A. or one of its territories. .',
     },
     {
-      question: 'How long will my participation last?',
-      answer: 'Participants will be followed over several years, with periodic data collection points. The exact duration will be communicated during the enrollment process.',
+      question: 'What kind of HIV test are you doing?',
+      answer: 'We are using the OraSure oral fluid collection device test, which is an at-home self-collected HIV test kit. The kit allows you to collect an oral fluid sample that you send to our lab (in a prepaid envelop). This kind of test is looking for HIV antibodies, not HIV itself. If a person is exposed to HIV, they develop HIV antibodies--which can take up to three months to develop in order for this test to detect them. So, if the results of the test come back as HIV-negative, then the test did not detect any HIV antibodies—that means that you were HIV negative as of 3 months ago. If you had a more recent exposure to HIV, this test wouldn’t be able to tell you anything about that, because that experience is too recent for this test to detect. There are tests that are able to detect more recent HIV exposures, but you would need to get that test from a medical provider. Our website has resources on how to find a provider.',
     },
     {
-      question: 'Is my personal information kept confidential?',
-      answer: 'Absolutely. We adhere to strict data security protocols and all personal information is anonymized and kept confidential in accordance with national privacy regulations.',
+      question: 'Can you tell me more about rectal testing in A5K?',
+      answer: 'Yes. Over the course of the study, we will be collecting rectal samples each year. At the end of the study, some participants will have their samples selected to test for rectal gonorrhea and chlamydia, as well as to test for rectal immune health. However, not all swabs will be tested, and those that are will not be tested until the very end of the study (years from now.) If your swab is tested for gonorrhea and chlamydia, we will let you know the results. But remember, because we don’t know if your swab will be selected and we won’t be doing any testing until the study is complete, it is important for you to get tested outside of this study by a healthcare provider. Using the CDC’s provider finder, you can find STI testing near you. You can even use the menu items to select “show only free or low-cost provider” and to search specifically for STI testing. https://gettested.cdc.gov/',
     },
     {
-      question: 'What kind of data will be collected?',
-      answer: 'Data collected may include health surveys, physical measurements, biological samples (e.g., blood, urine), and lifestyle information. All data collection methods are designed to be minimally intrusive.',
+      question: 'Why are you testing for “rectal immune health”? And will you tell me the results of that test?[',
+      answer: 'As part of our research aims, we are looking at factors associated with immune system health.  At the end of the study, some participants will have their samples selected to test for both rectal gonorrhea and chlamydia, and for rectal immune health. However, the immune health testing we are performing is experimental and is not the type of test a medical provider would typically do, since it’s not meant to diagnose a specific health condition. For these reasons, we will not be reporting the results from the rectal immune health tests back to you, and we encourage you to speak with you doctor if you’re concerned about your immune health.',
     },
     {
-      question: 'Can I withdraw from the study at any time?',
-      answer: 'Yes, participation is entirely voluntary, and you can withdraw from the study at any time without penalty or affecting your medical care.',
+      question: 'Why don’t you know if my rectal swabs will be selected for testing?',
+      answer: 'Rectal testing in this study is being used to determine if rectal STIs and the rectal immune system are predictive of HIV seroconversion (which refers to when an individual acquires HIV). This is being studied experimentally by looking at a sample of rectal swabs from people living with HIV, as well as those who are HIV negative. Because this is a scientific experiment, we will only be testing as many samples as we absolutely need to answer our research question—in other words, this test is not intended to monitor your individual health, but rather is used to answer a larger scientific question. However, we will deliver your STI testing results if your swabs were selected. But again, because these results will be delivered long after the samples were collected, we encourage you to test outside of the study.',
     },
   ];
 
@@ -216,7 +216,7 @@ const FAQPage = () => {
         Frequently Asked Questions (FAQ)
       </h1>
       <p className="text-lg leading-relaxed mb-8 text-center text-gray-700">
-        Find answers to common questions about the National Cohort Study.
+        Find answers to common questions about AMETHST5K.
       </p>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
@@ -280,7 +280,7 @@ const VideoContentPage = ({ title, description, embedUrl }) => {
 const VideoPage = () => {
   const videoDetails = {
     title: 'HIV and Rectal Sample Collection',
-    description: 'This video provides a comprehensive overview of the study procedures and what participants can expect.',
+    description: 'This video provides a comprehensive overview of the sample collection procedures.',
     embedUrl: 'https://player.vimeo.com/video/843216767', // Vimeo embed URL
   };
   return <VideoContentPage {...videoDetails} />;
@@ -290,7 +290,7 @@ const VideoPage = () => {
 const RectalVideoPage = () => {
   const videoDetails = {
     title: 'Rectal Sample Collection',
-    description: 's.',
+    description: 'This video provides a comprehensive overview of rectal sample collection procedures.',
     embedUrl: 'https://player.vimeo.com/video/843245895', // Vimeo embed URL
   };
   return <VideoContentPage {...videoDetails} />;
