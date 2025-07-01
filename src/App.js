@@ -88,11 +88,12 @@ const Footer = () => {
   return (
     <footer className="bg-indigo-900 text-white p-6 mt-8">
       <div className="container mx-auto text-center text-sm">
-        <p>&copy; {new Date().getFullYear()} AMETHST5K. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} AMETHST5K. .</p>
         <p className="mt-2">
-          <a href="#" className="text-teal-300 hover:underline">Privacy Policy</a> |{' '}
-          <a href="#" className="text-teal-300 hover:underline">Terms of Service</a>
+            AMETHST 5000  is a research study with the CUNY School of Public Health and Florida International University
         </p>
+        <p>Email us at: amethst5000@sph.cuny.edu</p>
+        <p>Or text us at: (833) 416-4716</p>
       </div>
     </footer>
   );
@@ -110,28 +111,12 @@ const HomePage = () => {
         It is being conducted by the CUNY School of Public Health in NYC as well as Florida International University in Miami. 
         This study is funded by the National Institutes of Health.
       </p>
+      <h2> The Study</h2>
       <p className="text-lg leading-relaxed mb-4 text-gray-700">
-        Our goal is to identify factors that influence health outcomes, develop better prevention
-        strategies, and ultimately improve the quality of life for future generations. Your
-        participation is crucial to the success of this ambitious endeavor.
+        Participants in this study are making a valuable contribution in helping us learn more about how to prevent HIV. 
+        Our team is made up of LGBT individuals and community representatives.
+         We are driven by a single goal: to do our part in improving the well being of our community.
       </p>
-      <h2 className="text-3xl font-bold text-indigo-700 mb-4 mt-8">Why Participate?</h2>
-      <ul className="list-disc list-inside text-lg leading-relaxed space-y-2 ml-4 text-gray-700">
-        <li>Contribute to vital scientific research.</li>
-        <li>Help shape future health policies and interventions.</li>
-        <li>Receive regular updates on study findings (anonymized).</li>
-        <li>Join a community dedicated to better health outcomes.</li>
-      </ul>
-      <h2 className="text-3xl font-bold text-indigo-700 mb-4 mt-8">Who Can Participate?</h2>
-      <p className="text-lg leading-relaxed text-gray-700">
-        We are seeking individuals aged 18 and older from diverse backgrounds across all states.
-        Specific eligibility criteria will be provided during the enrollment process.
-      </p>
-      <div className="mt-8 text-center">
-        <button className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
-          Learn More & Enroll
-        </button>
-      </div>
     </section>
   );
 };
